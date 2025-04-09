@@ -20,10 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Verifica se o usuário existe
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-        $usuario['senha'] = password_hash($usuario['senha'], PASSWORD_BCRYPT);
         if ($usuario) {
             // Verifica se a senha informada corresponde à senha armazenada no banco de dados
-            if (password_verify($senha, $usuario['senha']
+            if (password_verify(
+                $senha,
+                $usuario['senha']
             )) {
                 // Login bem-sucedido
                 $_SESSION['usuario_id'] = $usuario['id'];
@@ -32,11 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit;
             } else {
                 // Senha incorreta
+                echo "<div class='aviso'>";
                 echo "Senha incorreta!";
+                echo "</div>";
             }
         } else {
             // Usuário não encontrado
+            echo "<div class='aviso'>";
             echo "Usuário não encontrado!";
+            echo "</div>";
         }
     }
 }
@@ -52,22 +57,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
+    <main>
+        <section>
+            <div>
 
 
-    <h2>Login vajifjn</h2>
+            <div class="login">
+                <h2>LOGIN</h2>
+            </div>
 
-    <form method="POST">
+            <div class="corpologin">
 
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" id="email"><br><br>
+                <form method="POST">
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="senha"><br><br>
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email"><br><br>
 
-        <button type="submit">Entrar</button>
-        <div><b><a href="cadastro.php">Não tem conta? Clique aqui para cadastrar</a></b>
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha"><br><br>
 
-    </form>
+                    <div class="buton"><button type="submit">Entrar</button>
+                    
+                    <div><b>Não tem conta? <a href="cadastro.php">Clique aqui para cadastrar</a></b>
+                        <div><b> <a href="esquecisenha.php">Esqueci senha</a></b>
+
+                </form>
+            </div>
+        </div>
+
+        </section>
+    </main>
 
 
 </body>
