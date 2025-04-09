@@ -21,6 +21,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Cadastrado com Sucesso";
 }
 
+
+$userId = $_SESSION['user_id']; // Supondo que o ID do usuário esteja armazenado na sessão
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Obtém os dados do formulário
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+
+    // Processa o upload da foto
+    if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
+        $extensao = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+        $novo_nome = uniqid() . '.' . $extensao;
+        $caminho = 'uploads/' . $novo_nome;
+
+        // Move a foto para o diretório 'uploads'
+        move_uploaded_file($_FILES['foto']['tmp_name'], $caminho);
+    } else {
+        // Se não houve upload de foto, mantemos a foto atual
+        $caminho = null; // Ou você pode manter o caminho atual se não desejar trocar
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -55,7 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <label for="sobre_mim">Sobre mim</label>
                 <input type="text" name="sobre_mim"  required>
+
                 <br>
+
+                <label for="foto">Foto:</label>
+                <input type="file" name="foto" id="foto"><br>
 
                 <label for="email">Email</label>
                 <input type="email" name="email" required>
