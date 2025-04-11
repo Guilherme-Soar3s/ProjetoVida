@@ -63,28 +63,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div>
 
 
-            <div class="login">
-                <h2>LOGIN</h2>
+                <div class="login">
+                    <h1>LOGIN</h1>
+                </div>
+
+                <div class="corpologin">
+
+                    <form method="POST">
+
+                        <label for="email">E-mail</label>
+                        <div><input type="email" name="email" id="email"></div><br><br>
+
+                        <label for="senha">Senha</label>
+                        <div><input type="password" name="senha" id="senha"></div><br><br>
+
+                        <div class="buton"><button type="submit">Entrar</button></div>
+
+
+
+                    </form>
+
+                    <div class="link"><div><b> <a href="esquecisenha.php">Esqueci senha</a></b></div>
+                        <div><b>Não tem conta? <a href="cadastro.php">Clique aqui para cadastrar</a></b></div>
+                        
+                    </div>
+                </div>
             </div>
-
-            <div class="corpologin">
-
-                <form method="POST">
-
-                    <label for="email">E-mail:</label>
-                    <input type="email" name="email" id="email"><br><br>
-
-                    <label for="senha">Senha:</label>
-                    <input type="password" name="senha" id="senha"><br><br>
-
-                    <div class="buton"><button type="submit">Entrar</button>
-                    
-                    <div><b>Não tem conta? <a href="cadastro.php">Clique aqui para cadastrar</a></b>
-                        <div><b> <a href="esquecisenha.php">Esqueci senha</a></b>
-
-                </form>
-            </div>
-        </div>
 
         </section>
     </main>

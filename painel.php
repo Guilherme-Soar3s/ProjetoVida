@@ -1,7 +1,10 @@
 <?php
 
 session_start();
-session_destroy();
+
+if(!isset($_SESSION['usuario_id'])) {
+    header("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,5 +16,6 @@ session_destroy();
 </head>
 <body>
     <h1>Sobre meu pai</h1>
+    <a href="teste_personalidade.php"></a>
 </body>
 </html>
