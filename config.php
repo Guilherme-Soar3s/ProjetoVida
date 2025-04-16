@@ -6,7 +6,7 @@
 
 
 $host = "localhost";
-$dbname='projeto_vida';
+$dbname='projeto_de_vida';
 $username='root';
 $password='';
 
