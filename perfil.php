@@ -7,19 +7,34 @@ session_start();
 // ID do usuário que será exibido (ex: via GET ou sessão)
 $id = isset($_SESSION['usuario_id']) ? (int) $_SESSION['usuario_id'] : 1; // por padrão, mostra o perfil do ID 1
 
-// Buscar dados do usuário
-$sql = "SELECT nome, email, data_nascimento, sobre_mim, foto_perfil FROM users WHERE id = :id";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
-$stmt->execute();
+// Consulta SQL
+$sql = "SELECT nome, email, data_nascimento, sobre_mim, foto_perfil FROM users";
+$stmt = $pdo->query($sql);
+$row = $stmt->fetch();
 
-$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+// Exibição dos dados
 
-if (!$usuario) {
-    echo "Usuário não encontrado.";
-    exit;
+if ($stmt->rowCount() > 0) {
+    echo "<table border='1'>";
+    echo "<tr><th>Nome</th><th>Email</th><th>Data de Nascimento</th><th>Sobre Mim</th><th>Foto de Perfil</th></tr>";
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["nome"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["data_nascimento"] . "</td>";
+        echo "<td>" . $row["sobre_mim"] . "</td>";
+        echo "<td><img src='" . $row["foto_perfil"] . "' alt='Foto de Perfil' width='400'></td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+} else {
+    echo "Nenhum registro encontrado.";
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,14 +51,7 @@ if (!$usuario) {
 </head>
 <body>
 
-<div class="perfil">
-    <img src="<?= htmlspecialchars($usuario['foto_perfil']) ?>" alt="Foto de Perfil" class="foto">
-    <h2><?= htmlspecialchars($usuario['nome']) ?></h2>
 
-    <p><span class="label">Email:</span> <?= htmlspecialchars($usuario['email']) ?></p>
-    <p><span class="label">Data de Nascimento:</span> <?= date('d/m/Y', strtotime($usuario['data_nascimento'])) ?></p>
-    <p><span class="label">Sobre Mim:</span><br><?= nl2br(htmlspecialchars($usuario['sobre_mim'])) ?></p>
-</div>
 
 </body>
 </html>

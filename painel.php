@@ -16,6 +16,8 @@ if(!isset($_SESSION['usuario_id'])) {
 </head>
 <body>
     <h1>Sobre meu pai</h1>
-    <a href="teste_personalidade.php"></a>
+    <a href="teste_personalidade.php">teste personalidade</a>
+    <a href="teste_inteligencia.php">teste de inteligencia</a>
+    <a href="perfil.php">perfil</a>
 </body>
 </html>
