@@ -48,6 +48,30 @@ if ($stmt->rowCount() > 0) {
 
 ?>
 </div>
+
+<form method="$_POST">
+    <label for=""></label>
+<label for=""></label>    
+<label for=""></label>
+<label for=""></label>    
+<label for=""></label>
+<label for=""></label>    
+<label for=""></label>
+<label for=""></label>    
+<label for=""></label>
+<label for=""></label>    
+<label for=""></label>
+<label for=""></label>    
+<label for=""></label>
+<label for=""></label>
+
+
+
+
+
+
+
+</form>
     
 </body>
 </html>
