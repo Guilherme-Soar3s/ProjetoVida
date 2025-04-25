@@ -1,4 +1,46 @@
-<?php
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <main>
+        <section>
+            <div>
+
+
+                <div class="login">
+                    <h1>LOGIN</h1>
+                </div>
+
+                <div class="corpologin">
+
+                    <form method="POST">
+
+                        <label for="email">E-mail</label>
+                        <div><input type="email" name="email" id="email"></div><br><br>
+
+                        <label for="senha">Senha</label>
+                        <div><input type="password" name="senha" id="senha"></div><br><br>
+
+                        <div class="buton"><button type="submit">Entrar</button></div>
+
+
+
+                    </form>
+                    <div class="link">
+                        <div><b> <a href="esquecisenha.php">Esqueci senha</a></b></div>
+                        <div><b>Não tem conta? <a href="cadastro.php">Clique aqui para cadastrar</a></b></div>
+
+                    </div>
+
+
+                    <?php
 session_start();
 include 'config.php'; // Inclui a conexão com o banco de dados
 
@@ -9,7 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Verifica se os campos não estão vazios
     if (empty($email) || empty($senha)) {
+        echo "<div class='aviso'> ";
         echo "Por favor, preencha todos os campos!";
+        echo "</div>";
     } else {
         // Prepara a consulta SQL para verificar se o usuário existe
         $sql = "SELECT * FROM users WHERE email = :email";
@@ -48,45 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="estilo.css">
-</head>
-
-<body>
-    <main>
-        <section>
-            <div>
-
-
-                <div class="login">
-                    <h1>LOGIN</h1>
-                </div>
-
-                <div class="corpologin">
-
-                    <form method="POST">
-
-                        <label for="email">E-mail</label>
-                        <div><input type="email" name="email" id="email"></div><br><br>
-
-                        <label for="senha">Senha</label>
-                        <div><input type="password" name="senha" id="senha"></div><br><br>
-
-                        <div class="buton"><button type="submit">Entrar</button></div>
 
 
 
-                    </form>
-
-                    <div class="link"><div><b> <a href="esquecisenha.php">Esqueci senha</a></b></div>
-                        <div><b>Não tem conta? <a href="cadastro.php">Clique aqui para cadastrar</a></b></div>
-                        
-                    </div>
                 </div>
             </div>
 

@@ -7,13 +7,16 @@ if(!empty($_POST)){
     session_start();
 
     $id = $_SESSION['usuario_id']; // ID do usuário
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
     $data_nascimento = $_POST['data_nascimento'];
     $sobre_mim = $_POST['sobre_mim'];
 
     // Atualiza a senha apenas se for enviada
     $senha = !empty($_POST['senha']) ? password_hash($_POST['senha'], PASSWORD_DEFAULT) : null;
+
+    $nome = !empty($_POST['nome']) ? trim($_POST['nome']) : null;
+    $email = !empty($_POST['email']) ? trim($_POST['nome']) : null;
+    $data_nascimento = !empty($_POST['data_nascimento']) ? password_hash($_POST['senha'], PASSWORD_DEFAULT) : null;
+    $sobre_mim = !empty($_POST['senha']) ? password_hash($_POST['senha'], PASSWORD_DEFAULT) : null;
 
     // Foto de perfil (upload)
     $foto_perfil = null;
