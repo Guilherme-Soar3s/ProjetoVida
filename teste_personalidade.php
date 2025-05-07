@@ -55,9 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
     <title>Teste de Personalidade</title>
 </head>
 <body>
+    <main>
+        <section>
 
     <h2>Teste de Personalidade</h2>
     <form method="POST">
@@ -109,6 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ?>
         <button type="submit">Enviar Respostas</button>
     </form>
+</section>
+</main>
 
 </body>
 </html>

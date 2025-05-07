@@ -25,6 +25,21 @@ class UsuarioModel
         $stmt->execute([$id]);
     }
 
+    function getFotoPerfil($idUsuario) {
+        $stmt = $this->pdo->prepare("SELECT foto_perfil FROM users WHERE id = :id");
+        $stmt->bindParam(':id', $idUsuario, PDO::PARAM_INT);
+        
+        if ($stmt->execute()) {
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($resultado && !empty($resultado['foto_perfil'])) {
+                return $resultado['foto_perfil'];
+            } else {
+                return 'img/free-user-icon-3296-thumb.png'; // Caminho padrão
+            }
+        }
+    
+        return null;
+    }
     
 
    

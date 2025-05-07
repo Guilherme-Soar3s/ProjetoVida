@@ -1,30 +1,3 @@
-<?php
-
-session_start();
-
-if (isset($_SESSION["logado"])) {
-    header("Location: index.php");
-}
-
-require_once("Controller/UsuarioController.php");
-
-
-
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-?>
-<?php
-    $controller = new UsuarioController($pdo);
-    $controller->criarUsuario($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['data_nascimento'], $_POST['sobre_mim']);
-
-    echo "Cadastrado com Sucesso";
-}
-
-
-
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -38,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
 
-    <main>
+    <main class="log">
         <section>
 
             <div>
@@ -77,6 +50,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                         </div>
                     </form>
+
+
+                    <?php
+
+                    session_start();
+
+                    if (isset($_SESSION["logado"])) {
+                        header("Location: index.php");
+                    }
+
+                    require_once("Controller/UsuarioController.php");
+
+
+
+
+
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    ?>
+                    <?php
+                        $controller = new UsuarioController($pdo);
+                        $controller->criarUsuario($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['data_nascimento'], $_POST['sobre_mim']);
+
+
+                        echo "<div class='avisocadastro'>";
+                        echo "Cadastrado com Sucesso";
+                        echo "</div>";
+                    }
+
+
+
+
+                    ?>
+
+
+
+
                 </div>
             </div>
 

@@ -21,7 +21,9 @@ class UsuarioController
         $this->usuarioModel->editarUsuario($id);
     }
 
-    
+    public function getFotoPerfil($idUsuario) {
+        return $this->usuarioModel->getFotoPerfil($idUsuario);
+    }
     
    
 

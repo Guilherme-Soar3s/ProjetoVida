@@ -9,6 +9,10 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+
+.log{
     height: 100vh;
 }
 
@@ -27,6 +31,7 @@ h1 {
     font-size: 30px;
     margin-bottom: 20px;
     color: #000000;
+    padding-bottom: 40px;
 }
 
 
@@ -58,18 +63,101 @@ button {
     cursor: pointer;
     
 }
+header{
+    display: flex;
+    justify-content: space-around;
+}
+
+header img{
+    width: 50px;
+    height: 50px;
+}
+
+header .image img{
+  border: solid black;
+    border-radius: 100%;
+}
+
+header .image img:hover{
+    border:  solid rgb(53, 103, 205);
+}
+
+
+header a{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.teste h2{
+    font-size: 30px;
+}
+
+.section{
+    width:100%; 
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    
+}
+
+
+.teste:hover{
+    background-color: #c7c7c7;
+}
+
+.teste img{
+    margin-top: 30px;
+width: 400px;
+height: 400px;
+}
+
+.teste{
+   background-color: #efefef;
+   width: 600px;
+   border-radius: 15px;
+}
+
+.teste a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.image img{
+    width: 100px;
+    height: 100px;
+}
+
+
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu a{
+    padding-right:  50px;
+}
+
+header a:hover{
+    color: rgb(52, 103, 205);
+    text-decoration: solid;
+}
 
 button:hover {
     background-color: #45a049;
 }
 
 
-a {
+.link a {
     text-decoration: none;
     color: #007BFF;
 }
 
-a:hover {
+.link a:hover {
     text-decoration: underline;
 }
 
@@ -79,16 +167,27 @@ display: flex;
 }
 
 
-.aviso {
-    color: red;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
+.aviso, .avisocadastro {
+    
+   
     padding: 10px;
     margin-top: 20px;
     text-align: center;
     border-radius: 4px;
     font-size: 14px;
 }
+.aviso{
+    color: red;
+     background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.avisocadastro{
+    color: green;
+    background-color: #e4f8d7;
+    border: 1px solid #c6f5cd;
+}
+
 
 
 .link {

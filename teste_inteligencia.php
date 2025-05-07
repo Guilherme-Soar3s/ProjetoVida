@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insere no banco de dados
     $sql = "INSERT INTO teste_inteligencias (user_id, " . implode(",", array_map(fn($i) => "q$i", range(1, 16))) . ", resultado)
             VALUES (:user_id, " . implode(",", array_map(fn($i) => ":q$i", range(1, 16))) . ", :resultado)";
-   
+
     $stmt = $pdo->prepare($sql);
     $params = [':user_id' => $user_id, ':resultado' => $resultado_json];
     for ($i = 1; $i <= 16; $i++) {
@@ -68,53 +68,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
     <title>Teste de Múltiplas Inteligências</title>
 </head>
+
 <body>
+    <main>
+        <section>
 
-    <h2>Teste de Múltiplas Inteligências</h2>
-    <form method="POST">
+        <h2>Teste de Múltiplas Inteligências</h2>
+        <form method="POST">
 
-        <?php
-        $perguntas = [
-            "Gosto de aprender ouvindo músicas e sons.",
-            "Tenho facilidade em resolver problemas matemáticos.",
-            "Prefiro atividades físicas e esportes.",
-            "Aprendo melhor lendo e escrevendo.",
-            "Gosto de trabalhar em equipe e conversar com outras pessoas.",
-            "Gosto de refletir sobre meus sentimentos e pensamentos.",
-            "Tenho uma conexão forte com a natureza e os animais.",
-            "Percebo rapidamente as emoções das pessoas ao meu redor.",
-            "Sou bom em reconhecer padrões musicais e ritmos.",
-            "Adoro quebra-cabeças e desafios lógicos.",
-            "Tenho facilidade para aprender coreografias e movimentos.",
-            "Gosto de contar histórias e escrever textos.",
-            "Sou bom em falar e convencer as pessoas.",
-            "Prefiro atividades individuais e gosto de momentos de reflexão.",
-            "Tenho curiosidade sobre o meio ambiente e como as coisas funcionam.",
-            "Entendo facilmente o comportamento e expressões das pessoas."
-        ];
+            <?php
+            $perguntas = [
+                "Gosto de aprender ouvindo músicas e sons.",
+                "Tenho facilidade em resolver problemas matemáticos.",
+                "Prefiro atividades físicas e esportes.",
+                "Aprendo melhor lendo e escrevendo.",
+                "Gosto de trabalhar em equipe e conversar com outras pessoas.",
+                "Gosto de refletir sobre meus sentimentos e pensamentos.",
+                "Tenho uma conexão forte com a natureza e os animais.",
+                "Percebo rapidamente as emoções das pessoas ao meu redor.",
+                "Sou bom em reconhecer padrões musicais e ritmos.",
+                "Adoro quebra-cabeças e desafios lógicos.",
+                "Tenho facilidade para aprender coreografias e movimentos.",
+                "Gosto de contar histórias e escrever textos.",
+                "Sou bom em falar e convencer as pessoas.",
+                "Prefiro atividades individuais e gosto de momentos de reflexão.",
+                "Tenho curiosidade sobre o meio ambiente e como as coisas funcionam.",
+                "Entendo facilmente o comportamento e expressões das pessoas."
+            ];
 
-        $opcoes = ["A" => "Sim", "B" => "Não"];
+            $opcoes = ["A" => "Sim", "B" => "Não"];
 
-        // Exibindo as perguntas com numeração correta
-        foreach ($perguntas as $index => $pergunta) {
-            // A numeração começa de 1 e incrementa
-            echo "<p>" . ($index + 1) . ". " . $pergunta . "</p>";  
-            // Exibindo as opções de resposta
-            foreach ($opcoes as $key => $value) {
-                echo "<input type='radio' name='q" . ($index + 1) . "' value='$key' required> $value ";
+            // Exibindo as perguntas com numeração correta
+            foreach ($perguntas as $index => $pergunta) {
+                // A numeração começa de 1 e incrementa
+                echo "<p>" . ($index + 1) . ". " . $pergunta . "</p>";
+                // Exibindo as opções de resposta
+                foreach ($opcoes as $key => $value) {
+                    echo "<input type='radio' name='q" . ($index + 1) . "' value='$key' required> $value ";
+                }
+                echo "<br><br>";
             }
-            echo "<br><br>";
-        }
-        ?>
+            ?>
 
-        <br>
-        <button type="submit">Enviar</button>
-    </form>
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    </main>
 
 </body>
+
 </html>
