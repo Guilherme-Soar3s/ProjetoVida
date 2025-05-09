@@ -9,9 +9,17 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     
 }
 
+footer{
+    text-align: center;
+}
+.footer  {
+    position: relative;
+    top: 70px;
+}
 .log{
     height: 100vh;
 }
@@ -23,6 +31,7 @@ section {
     border-radius: 8px;
     box-shadow: 6px 7px 10px rgba(0, 0, 0, 0.1);
     width: 500px;
+    margin-bottom: 25PX;
 }
 
 
@@ -92,6 +101,7 @@ header a{
     padding: 20px;
 }
 
+
 .teste h2{
     font-size: 30px;
 }
@@ -126,9 +136,20 @@ height: 400px;
     color: #000000;
 }
 
+.profissao a{
+text-decoration: none;
+color: #0059ce;
+}
+
+.profissao section:hover{
+    color: #207af0;
+    box-shadow: 6px 7px 10px #646464;
+    background-color: #f8f8f8;
+}
+
 .image img{
-    width: 100px;
-    height: 100px;
+    width: 65px;
+    height: 65px;
 }
 
 
@@ -203,4 +224,23 @@ display: flex;
 
 .link b {
     font-size: 14px;
+}
+
+.foto img{
+    width: 300px;
+    height: 300px;
+    border: solid black;
+
+
+}
+
+.foto{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    font-size: 35px;
+    color: #000000;
+    
 }

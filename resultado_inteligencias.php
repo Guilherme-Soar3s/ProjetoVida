@@ -38,14 +38,37 @@ if (!$testes) {
     </style>
 </head>
 <body>
+<header>
 
-    <h2>Selecione um teste anterior:</h2>
+
+
+
+<h2>Selecione um teste anterior:</h2>
     <select id="selecionar_teste">
         <option value="">Escolha um teste</option>
         <?php foreach ($testes as $teste):?>
             <option value="<?= $teste['id'] ?>">Teste de <?= date("d/m/Y H:i", strtotime($teste['data'])) ?></option>
         <?php endforeach; ?>
     </select>
+
+
+<div class="menu">
+
+    <a href="quemsoueu.php"><div>Quem sou eu?</div></a>
+
+    <div class="image">
+
+        <a href="perfil.php">
+            <div><img src="<?= $foto_perfil ?>" alt=""></div>
+        </a>
+    </div>
+
+    <a href="index.php"> <div>Sair</div></a>
+</div>
+
+</header>
+
+    
 
     <h2 id="resultado_tipo">Tipo de inteligência:</h2>
     <canvas id="graficoInteligencias"></canvas>

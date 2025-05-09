@@ -104,6 +104,7 @@ if (!empty($_POST)) {
 <head>
     <meta charset="UTF-8">
     <title>Perfil de <?= htmlspecialchars($usuario['nome']) ?></title>
+    <link rel="stylesheet" href="estilo.css">
 
 
     <form action="" method="post" enctype="multipart/form-data">

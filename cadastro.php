@@ -67,8 +67,7 @@
 
 
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    ?>
-                    <?php
+                   
                         $controller = new UsuarioController($pdo);
                         $controller->criarUsuario($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['data_nascimento'], $_POST['sobre_mim']);
 
@@ -76,6 +75,8 @@
                         echo "<div class='avisocadastro'>";
                         echo "Cadastrado com Sucesso";
                         echo "</div>";
+
+                        header("Location: index.php");
                     }
 
 

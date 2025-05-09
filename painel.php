@@ -33,7 +33,7 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
 
         <div class="menu">
 
-            <a href="quemsoueu.php"><div>Quem sou eu?</div></a>
+            <a href="sobremim.php"><div>Sobre mim</div></a>
 
             <div class="image">
 
@@ -76,6 +76,9 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
         </section>
     </main>
 
+    <footer class="footer">
+       <div> <p > © Todos os direitos reservados</p></div>
+    </footer>
 </body>
 
 </html>
