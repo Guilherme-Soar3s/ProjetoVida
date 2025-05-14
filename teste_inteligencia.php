@@ -73,10 +73,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
+     <script src="https://kit.fontawesome.com/11db660343.js" crossorigin="anonymous"></script>
     <title>Teste de Múltiplas Inteligências</title>
 </head>
 
 <body>
+
+<header>
+
+
+        <div class="menu">
+
+            <a href="painel.php">
+                <div>Início</div>
+            </a>
+
+            <div class="image">
+
+                <a href="perfil.php">
+                    <div><img src="<?= $foto_perfil ?>" alt=""></div>
+                </a>
+            </div>
+
+            <a href="index.php">
+                <div><i class="fa-solid fa-right-from-bracket"></i>r</div>
+            </a>
+        </div>
+
+    </header>
     <main>
         <section>
 
@@ -123,7 +147,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
 
     </main>
-
+ <footer class="footer">
+       <div> <p > © Todos os direitos reservados</p></div>
+    </footer>
 </body>
 
 </html>

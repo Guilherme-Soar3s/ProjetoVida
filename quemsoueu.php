@@ -95,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['operacao'] === 'criar') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
+     <script src="https://kit.fontawesome.com/11db660343.js" crossorigin="anonymous"></script>
     <title>Quem sou eu?</title>
 </head>
 
@@ -122,14 +123,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['operacao'] === 'criar') {
             </div>
 
             <a href="index.php">
-                <div>Sair</div>
+                <div><i class="fa-solid fa-right-from-bracket"></i></div>
             </a>
         </div>
 
     </header>
 
     <main>
-        <section class="section">
+        <section>
             <div>
                 <div>
                     <form method="POST">
@@ -247,6 +248,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['operacao'] === 'criar') {
             </div>
         </section>
     </main>
+     <footer class="footer">
+       <div> <p > © Todos os direitos reservados</p></div>
+    </footer>
 </body>
 
 </html>

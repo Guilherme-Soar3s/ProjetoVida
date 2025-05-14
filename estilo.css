@@ -187,8 +187,20 @@ display: flex;
     justify-content: center;
 }
 
+.logout{
+    border: #000000;
+  border-radius: 100%;
+    width: 40px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    filter: grayscale(100%);
+}
 
-.aviso, .avisocadastro {
+
+
+.aviso, .avisocadastro, .avisoneutro {
     
    
     padding: 10px;
@@ -206,6 +218,12 @@ display: flex;
 .avisocadastro{
     color: green;
     background-color: #e4f8d7;
+    border: 1px solid #c6f5cd;
+}
+
+.avisoneutro{
+    color: rgb(130, 130, 130);
+    background-color: #cecece;
     border: 1px solid #c6f5cd;
 }
 
@@ -243,4 +261,18 @@ display: flex;
     font-size: 35px;
     color: #000000;
     
+}
+
+.fotoperfil img{
+    width: 300px;
+    height: 300px;
+
+
+}
+
+.fotoperfil{
+    background-color: #c7c7c7;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
 }

@@ -1,6 +1,14 @@
 <?php
 session_start();
+require_once 'Controller/UsuarioController.php';
 require_once 'config.php';
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: index.php");
+}
+$controller = new UsuarioController($pdo);
+$foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
+
 
 if (!isset($_SESSION['usuario_id'])) {
     die("Acesso negado. Faça login para continuar.");
@@ -48,43 +56,76 @@ $valores = json_encode([
 <head>
     <meta charset="UTF-8">
     <title>Resultado do Teste</title>
+    <link rel="stylesheet" href="estilo.css">
+     <script src="https://kit.fontawesome.com/11db660343.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
+     <header>
 
-    <h2>Seu Resultado</h2>
-    <p><strong>Tipo de Personalidade:</strong> <?php echo $resultado; ?></p>
-    <p><?php echo $descricao; ?></p>
 
-    <canvas id="graficoPersonalidade" width="300" height="300"></canvas>
+        <div class="menu">
 
-    <script>
-        const ctx = document.getElementById('graficoPersonalidade').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: <?php echo $labels; ?>,
-                datasets: [{
-                    label: 'Pontuação',
-                    data: <?php echo $valores; ?>,
-                    backgroundColor: ['rgba(255, 0, 55, 0.6)', 'rgba(0, 153, 255, 0.6)', 'rgba(255, 183, 0, 0.6)', 'rgba(0, 255, 13, 0.6)'],
-                    borderColor: ['rgb(255, 0, 55)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 16
+            <a href="painel.php">
+                <div>Início</div>
+            </a>
+
+            <div class="image">
+
+                <a href="perfil.php">
+                    <div><img src="<?= $foto_perfil ?>" alt=""></div>
+                </a>
+            </div>
+
+            <a href="index.php">
+                <div><i class="fa-solid fa-right-from-bracket"></i></div>
+            </a>
+        </div>
+
+    </header>
+    <main>
+        <section>
+
+            <h2>Seu Resultado</h2>
+            <p><strong>Tipo de Personalidade:</strong> <?php echo $resultado; ?></p>
+            <p><?php echo $descricao; ?></p>
+
+            <canvas id="graficoPersonalidade" width="300" height="300"></canvas>
+
+            <script>
+                const ctx = document.getElementById('graficoPersonalidade').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: <?php echo $labels; ?>,
+                        datasets: [{
+                            label: 'Pontuação',
+                            data: <?php echo $valores; ?>,
+                            backgroundColor: ['rgba(255, 0, 55, 0.6)', 'rgba(0, 153, 255, 0.6)', 'rgba(255, 183, 0, 0.6)', 'rgba(0, 255, 13, 0.6)'],
+                            borderColor: ['rgb(255, 0, 55)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 16
+                            }
+                        }
                     }
-                }
-            }
-        });
-    </script>
+                });
+            </script>
+        </section>
+    </main>
 
+    <footer class="footer">
+        <div>
+            <p> © Todos os direitos reservados</p>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -16,6 +16,7 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
+     <script src="https://kit.fontawesome.com/11db660343.js" crossorigin="anonymous"></script>
     <title>Quem sou eu</title>
 </head>
 
@@ -35,6 +36,10 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
                 <div>Inicio</div>
             </a>
 
+             <a href="profissao.php"><div>Profissão</div></a>
+
+              <a href="quemsoueu.php"><div>Quem sou eu?</div></a>
+
             <div class="image">
 
                 <a href="perfil.php">
@@ -43,7 +48,7 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
             </div>
 
             <a href="index.php">
-                <div>Sair</div>
+                <div><i class="fa-solid fa-right-from-bracket"></i></div>
             </a>
         </div>
 
@@ -144,7 +149,9 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
         
     </main>
 
-
+ <footer class="footer">
+       <div> <p > © Todos os direitos reservados</p></div>
+    </footer>
 </body>
 
 </html>

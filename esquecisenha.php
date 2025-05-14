@@ -72,6 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
         </section>
     </main>
+     <footer class="footer">
+       <div> <p > © Todos os direitos reservados</p></div>
+    </footer>
 </body>
 
 </html>

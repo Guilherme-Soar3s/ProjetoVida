@@ -16,6 +16,7 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
+     <script src="https://kit.fontawesome.com/11db660343.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -31,6 +32,8 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
 
     <a href="painel.php"><div>Inicio</div></a>
 
+    <a href="sobremim.php"><div>Sobre mim</div></a>
+
     <div class="image">
 
         <a href="perfil.php">
@@ -38,7 +41,7 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
         </a>
     </div>
 
-    <a href="index.php"> <div>Sair</div></a>
+    <a href="index.php"> <div><i class="fa-solid fa-right-from-bracket"></i></div></a>
 </div>
 
 </header>
@@ -51,5 +54,8 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
             </div>
         </section>
     </main>
+     <footer class="footer">
+       <div> <p > © Todos os direitos reservados</p></div>
+    </footer>
 </body>
 </html>
