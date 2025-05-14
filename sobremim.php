@@ -76,7 +76,7 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
 
                 <h2>Meu sonho de infância</h2>
                 <p>Tinha sonho de ser policial ou bombeiro, áreas que ajudavam pessoas, quando um pouco mais velho,
-                    jogador de futebol. . </p>
+                    jogador de futebol.</p>
 
 
             </div>

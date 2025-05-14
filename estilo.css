@@ -107,11 +107,15 @@ header a{
 }
 
 .section{
-    width:100%; 
+    width:90%; 
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     
+}
+
+.section p, li, h3{
+    text-align: justify;
 }
 
 
@@ -276,3 +280,18 @@ display: flex;
     justify-content: center;
     border-radius: 100px;
 }
+
+.perfil{
+      display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.peni{
+    height: 150px;
+}
+
+.contperfil{
+    height: 500px;
+}
+

@@ -19,7 +19,7 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
 <head>
     <meta charset="UTF-8">
     <title>Perfil de <?= htmlspecialchars($usuario['nome']) ?></title>
-    <link rel="stylesheet" href="estilo.css"> 
+    <link rel="stylesheet" href="estilo.css">
     <script src="https://kit.fontawesome.com/11db660343.js" crossorigin="anonymous"></script>
 
 </head>
@@ -46,29 +46,35 @@ $foto_perfil = $controller->getFotoPerfil($_SESSION['usuario_id']);
 </header>
 
 <body>
-    <main>
-        <section>
+    <main class="perfil">
+        <section class="contperfil">
 
 
 
 
             <form action="" method="post" enctype="multipart/form-data">
 
+                <label for="name">Nome</label>
+                <input type="text" name="nome"><br>
 
-                Nome: <input type="text" name="nome"><br>
+                <label for="email">Email</label>
+                 <input type="email" name="email"><br>
 
-                Email: <input type="email" name="email"><br>
+               <label for="senha">Senha</label>
+               <input type="password" name="senha"><br>
 
-                Senha: <input type="password" name="senha"><br>
+                <label for="data_nascimento">Data de nascimento</label>
+                <input type="date" name="data_nascimento"><br>
 
-                Data de Nascimento: <input type="date" name="data_nascimento"><br>
+                <label for="name">Sobre mim</label> <input class="peni" name="sobre_mim"><br>
 
-                Sobre Mim: <textarea name="sobre_mim"></textarea><br>
+        </section>
+        <section class="contperfil">
 
-                <div class="fotoperfil"><img src="<?= $foto_perfil ?>" alt=""></div>
-                Foto de Perfil: <input type="file" name="foto_perfil"><br>
+            <div class="fotoperfil"><img src="<?= $foto_perfil ?>" alt=""></div>
+            Foto de Perfil: <input type="file" name="foto_perfil"><br>
 
-                <div class="buton"><button type="submit">Atualizar Perfil</button></div>
+            <div class="buton"><button type="submit">Atualizar Perfil</button></div>
             </form>
 
             <?php

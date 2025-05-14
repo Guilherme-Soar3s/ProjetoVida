@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['operacao'] === 'criar') {
     // Preparar a SQL com placeholders
     $stmt = $pdo->prepare("
         INSERT INTO perfil_usuario (
-            nome, texto, assunto, idade, sexo, sobre_voce, lembrancas,
+            nome, idade, sexo, sobre_voce, lembrancas,
             pontos_fortes, pontos_fracos, valores, aptidoes, familia, amigos, escola, sociedade,
             gostos, nao_gostos, rotina, lazer, estudos, vida_escolar,
             visao_fisica, visao_intelectual, visao_emocional,
@@ -43,8 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['operacao'] === 'criar') {
     // Executar a query com os dados do formulário
     $stmt->execute([
         ':nome' => $_POST['nome'],
-        ':texto' => $_POST['texto'],
-        ':assunto' => $_POST['assunto'],
         ':idade' => $_POST['idade'],
         ':sexo' => $_POST['sexo'],
         ':sobre_voce' => $_POST['sobre_voce'],
@@ -139,8 +137,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['operacao'] === 'criar') {
                         <!-- Dados Pessoais -->
                         <h3>Dados Pessoais</h3>
                         <input name="nome" placeholder="Nome">
-                        <textarea name="texto" placeholder="Digite o texto da música..."></textarea>
-                        <input type="texto" name="assunto" placeholder="Digite o assunto da música">
                         <input name="idade" placeholder="Idade">
                         <input name="sexo" placeholder="Sexo">
 
@@ -205,7 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['operacao'] === 'criar') {
 
                         <!-- Autovalorização -->
                         <h3>Autovalorização</h3>
-                        <p>Use escalas ou escolha múltipla via JS depois, aqui é só rascunho inicial</p>
+
                         <input name="autoestima" placeholder="Autoestima de 1 a 10">
                         <input name="autoconfianca" placeholder="Autoconfiança de 1 a 10">
 
@@ -241,7 +237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['operacao'] === 'criar') {
 
                         <!-- Botão de envio -->
                         <input type="hidden" name="operacao" value="criar">
-                        <button class="login-btn" type="submit">Salvar Tudo</button>
+                        <div class="buton"><button type="submit">Salvar Tudo</button></div>
                     </form>
 
                 </div>
